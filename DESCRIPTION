@@ -1,11 +1,16 @@
 Package: RcppIconvExample
 Type: Package
-Title: What the Package Does Using Title Case
+Title: Rcpp Example of Using Iconv Offered by R
 Version: 0.0.1
 Date: 2021-03-06
 Author: Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
-Description: More details about what the package does.
+Description: Character conversion via the 'iconv' library is used by R itself, and can be
+ accessed from compiled code relying on one standard header exported by R. This package
+ illustrates this usage by building on and extending an earlier example in a blog post at
+ <https://fishandwhistle.net/post/2021/using-rs-cross-platform-iconv-wrapper-from-cpp11/>.
+ Rcpp is used only for its convenience of seamlessly building the package, and converting
+ between character variable at the R and C++ levels.
 License: GPL (>= 2)
 Suggests: tinytest
 LinkingTo: Rcpp
