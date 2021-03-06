@@ -1,0 +1,14 @@
+Package: rcppstringtest
+Type: Package
+Title: What the Package Does Using Title Case
+Version: 0.0.1
+Date: 2021-03-06
+Author: Dirk Eddelbuettel
+Maintainer: Dirk Eddelbuettel <edd@debian.org>
+Description: More details about what the package does. 
+License: GPL (>= 2)
+Suggests: tinytest
+LinkingTo: Rcpp
+Imports: Rcpp
+RoxygenNote: 6.0.1
+Encoding: UTF-8
