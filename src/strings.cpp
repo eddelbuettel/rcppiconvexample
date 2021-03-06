@@ -10,9 +10,9 @@
 //' @return A string
 //' @examples
 //' ## example file from package 'uchardet' encoding as windows-1252
-//' win1252file <- system.file("rawdata", "windows-1252.txt", package="rcppstringtest")
+//' win1252file <- system.file("rawdata", "windows-1252.txt", package="RcppIconvExample")
 //' win1252txt <- demo_read_file_enc(win1252file, "windows-1252")
-//' utf8file <- system.file("rawdata", "utf8.txt", package="rcppstringtest")
+//' utf8file <- system.file("rawdata", "utf8.txt", package="RcppIconvExample")
 //' utf8txt <- demo_read_file_enc(utf8file, "UTF-8")
 //' stopifnot(substr(win1252txt, 1, 62) == substr(utf8txt, 1, 62))
 //' cat(win1252txt)

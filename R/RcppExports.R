@@ -16,11 +16,11 @@
 #' stopifnot(substr(win1252txt, 1, 62) == substr(utf8txt, 1, 62))
 #' cat(win1252txt)
 demo_read_file <- function(filename) {
-    .Call(`_rcppstringtest_demo_read_file`, filename)
+    .Call(`_RcppIconvExample_demo_read_file`, filename)
 }
 
 #' @rdname demo_read_file
 demo_read_file_enc <- function(filename, encoding) {
-    .Call(`_rcppstringtest_demo_read_file_enc`, filename, encoding)
+    .Call(`_RcppIconvExample_demo_read_file_enc`, filename, encoding)
 }
 

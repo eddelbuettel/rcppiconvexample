@@ -1,5 +1,4 @@
 
 if ( requireNamespace("tinytest", quietly=TRUE) ){
-  tinytest::test_package("rcppstringtest")
+  tinytest::test_package("RcppIconvExample")
 }
-

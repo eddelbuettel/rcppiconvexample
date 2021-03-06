@@ -12,7 +12,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // demo_read_file
 std::string demo_read_file(std::string filename);
-RcppExport SEXP _rcppstringtest_demo_read_file(SEXP filenameSEXP) {
+RcppExport SEXP _RcppIconvExample_demo_read_file(SEXP filenameSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -23,7 +23,7 @@ END_RCPP
 }
 // demo_read_file_enc
 std::string demo_read_file_enc(std::string filename, std::string encoding);
-RcppExport SEXP _rcppstringtest_demo_read_file_enc(SEXP filenameSEXP, SEXP encodingSEXP) {
+RcppExport SEXP _RcppIconvExample_demo_read_file_enc(SEXP filenameSEXP, SEXP encodingSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -35,12 +35,12 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_rcppstringtest_demo_read_file", (DL_FUNC) &_rcppstringtest_demo_read_file, 1},
-    {"_rcppstringtest_demo_read_file_enc", (DL_FUNC) &_rcppstringtest_demo_read_file_enc, 2},
+    {"_RcppIconvExample_demo_read_file", (DL_FUNC) &_RcppIconvExample_demo_read_file, 1},
+    {"_RcppIconvExample_demo_read_file_enc", (DL_FUNC) &_RcppIconvExample_demo_read_file_enc, 2},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_rcppstringtest(DllInfo *dll) {
+RcppExport void R_init_RcppIconvExample(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }
