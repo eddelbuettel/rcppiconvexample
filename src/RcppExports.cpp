@@ -21,9 +21,22 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// demo_read_file_enc
+std::string demo_read_file_enc(std::string filename, std::string encoding);
+RcppExport SEXP _rcppstringtest_demo_read_file_enc(SEXP filenameSEXP, SEXP encodingSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type filename(filenameSEXP);
+    Rcpp::traits::input_parameter< std::string >::type encoding(encodingSEXP);
+    rcpp_result_gen = Rcpp::wrap(demo_read_file_enc(filename, encoding));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_rcppstringtest_demo_read_file", (DL_FUNC) &_rcppstringtest_demo_read_file, 1},
+    {"_rcppstringtest_demo_read_file_enc", (DL_FUNC) &_rcppstringtest_demo_read_file_enc, 2},
     {NULL, NULL, 0}
 };
 

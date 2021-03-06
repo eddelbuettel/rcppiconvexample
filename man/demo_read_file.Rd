@@ -2,12 +2,17 @@
 % Please edit documentation in R/RcppExports.R
 \name{demo_read_file}
 \alias{demo_read_file}
+\alias{demo_read_file_enc}
 \title{Demo reading a file}
 \usage{
 demo_read_file(filename)
+
+demo_read_file_enc(filename, encoding)
 }
 \arguments{
-\item{filename}{A filename}
+\item{filename}{[string] A filename}
+
+\item{encoding}{[string] An encoding}
 }
 \value{
 A string
@@ -16,9 +21,13 @@ A string
 Demo reading a file
 }
 \examples{
-txt <- demo_read_file(system.file("rawdata", "qc.txt", package="rcppstringtest"))
-cat(txt)
-stopifnot(txt == "Québec\\n" || .Platform$OS.type == "windows")
+## example file from package 'uchardet' encoding as windows-1252
+win1252file <- system.file("rawdata", "windows-1252.txt", package="rcppstringtest")
+win1252txt <- demo_read_file_enc(win1252file, "windows-1252")
+utf8file <- system.file("rawdata", "utf8.txt", package="rcppstringtest")
+utf8txt <- demo_read_file_enc(utf8file, "UTF-8")
+stopifnot(substr(win1252txt, 1, 62) == substr(utf8txt, 1, 62))
+cat(win1252txt)
 }
 \seealso{
 https://fishandwhistle.net/post/2021/using-rs-cross-platform-iconv-wrapper-from-cpp11/

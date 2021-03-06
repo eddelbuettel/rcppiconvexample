@@ -4,13 +4,23 @@
 #' Demo reading a file
 #'
 #' @seealso https://fishandwhistle.net/post/2021/using-rs-cross-platform-iconv-wrapper-from-cpp11/
-#' @param filename A filename
+#' @param filename [string] A filename
+#' @param encoding [string] An encoding
 #' @return A string
 #' @examples
-#' txt <- demo_read_file(system.file("rawdata", "qc.txt", package="rcppstringtest"))
-#' cat(txt)
-#' stopifnot(txt == "Québec\n" || .Platform$OS.type == "windows")
+#' ## example file from package 'uchardet' encoding as windows-1252
+#' win1252file <- system.file("rawdata", "windows-1252.txt", package="rcppstringtest")
+#' win1252txt <- demo_read_file_enc(win1252file, "windows-1252")
+#' utf8file <- system.file("rawdata", "utf8.txt", package="rcppstringtest")
+#' utf8txt <- demo_read_file_enc(utf8file, "UTF-8")
+#' stopifnot(substr(win1252txt, 1, 62) == substr(utf8txt, 1, 62))
+#' cat(win1252txt)
 demo_read_file <- function(filename) {
     .Call(`_rcppstringtest_demo_read_file`, filename)
+}
+
+#' @rdname demo_read_file
+demo_read_file_enc <- function(filename, encoding) {
+    .Call(`_rcppstringtest_demo_read_file_enc`, filename, encoding)
 }
 
