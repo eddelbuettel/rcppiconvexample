@@ -2,22 +2,22 @@
 #include <Rcpp.h>
 #include <R_ext/Riconv.h>
 
-//' Demo reading a file
+//' Read an Enconded File
 //'
-//' @seealso https://fishandwhistle.net/post/2021/using-rs-cross-platform-iconv-wrapper-from-cpp11/
 //' @param filename [string] A filename
 //' @param encoding [string] An encoding
 //' @return A string
+//' @seealso https://fishandwhistle.net/post/2021/using-rs-cross-platform-iconv-wrapper-from-cpp11/
 //' @examples
 //' ## example file from package 'uchardet' encoding as windows-1252
 //' win1252file <- system.file("rawdata", "windows-1252.txt", package="RcppIconvExample")
-//' win1252txt <- demo_read_file_enc(win1252file, "windows-1252")
+//' win1252txt <- read_file_enc(win1252file, "windows-1252")
 //' utf8file <- system.file("rawdata", "utf8.txt", package="RcppIconvExample")
-//' utf8txt <- demo_read_file_enc(utf8file, "UTF-8")
+//' utf8txt <- read_file_enc(utf8file, "UTF-8")
 //' stopifnot(substr(win1252txt, 1, 62) == substr(utf8txt, 1, 62))
 //' cat(win1252txt)
 // [[Rcpp::export]]
-std::string demo_read_file(std::string filename) {
+std::string read_file(std::string filename) {
     const int len = 1024;
     char buffer[len];
 
@@ -31,9 +31,9 @@ std::string demo_read_file(std::string filename) {
     return std::string(buffer, n_read);
 }
 
-//' @rdname demo_read_file
+//' @rdname read_file
 // [[Rcpp::export]]
-std::string demo_read_file_enc(std::string filename, std::string encoding) {
+std::string read_file_enc(std::string filename, std::string encoding) {
     char buffer[1024];
 
     std::ifstream file;
