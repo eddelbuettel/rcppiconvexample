@@ -2,30 +2,30 @@
 % Please edit documentation in R/RcppExports.R
 \name{read_file}
 \alias{read_file}
-\alias{read_file_enc}
-\title{Read an Enconded File}
+\title{Read an Enconded File, Optionally Converting to Another Encoding}
 \usage{
-read_file(filename)
-
-read_file_enc(filename, encoding)
+read_file(filename, encoding = "")
 }
 \arguments{
 \item{filename}{[string] A filename}
 
-\item{encoding}{[string] An encoding}
+\item{encoding}{[string, optional] An encoding. If present, file content is converted
+to the given encoding; if missing (as indicated by the default empty string) no conversion
+is made.}
 }
 \value{
 A string
 }
 \description{
-Read an Enconded File
+This function relies on the 'iconv' facility available with R. Having 'iconv' is optional but
+likely for most builds of R; see \code{capabilities("iconv")} to verify.
 }
 \examples{
 ## example file from package 'uchardet' encoding as windows-1252
 win1252file <- system.file("rawdata", "windows-1252.txt", package="RcppIconvExample")
-win1252txt <- read_file_enc(win1252file, "windows-1252")
+win1252txt <- read_file(win1252file, "windows-1252")
 utf8file <- system.file("rawdata", "utf8.txt", package="RcppIconvExample")
-utf8txt <- read_file_enc(utf8file, "UTF-8")
+utf8txt <- read_file(utf8file, "UTF-8")
 stopifnot(substr(win1252txt, 1, 62) == substr(utf8txt, 1, 62))
 cat(win1252txt)
 }

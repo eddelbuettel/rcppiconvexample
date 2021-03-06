@@ -11,32 +11,20 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
 // read_file
-std::string read_file(std::string filename);
-RcppExport SEXP _RcppIconvExample_read_file(SEXP filenameSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< std::string >::type filename(filenameSEXP);
-    rcpp_result_gen = Rcpp::wrap(read_file(filename));
-    return rcpp_result_gen;
-END_RCPP
-}
-// read_file_enc
-std::string read_file_enc(std::string filename, std::string encoding);
-RcppExport SEXP _RcppIconvExample_read_file_enc(SEXP filenameSEXP, SEXP encodingSEXP) {
+std::string read_file(std::string filename, std::string encoding);
+RcppExport SEXP _RcppIconvExample_read_file(SEXP filenameSEXP, SEXP encodingSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type filename(filenameSEXP);
     Rcpp::traits::input_parameter< std::string >::type encoding(encodingSEXP);
-    rcpp_result_gen = Rcpp::wrap(read_file_enc(filename, encoding));
+    rcpp_result_gen = Rcpp::wrap(read_file(filename, encoding));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_RcppIconvExample_read_file", (DL_FUNC) &_RcppIconvExample_read_file, 1},
-    {"_RcppIconvExample_read_file_enc", (DL_FUNC) &_RcppIconvExample_read_file_enc, 2},
+    {"_RcppIconvExample_read_file", (DL_FUNC) &_RcppIconvExample_read_file, 2},
     {NULL, NULL, 0}
 };
 
