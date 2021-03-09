@@ -18,7 +18,9 @@ A string
 }
 \description{
 This function relies on the 'iconv' facility available with R. Having 'iconv' is optional but
-likely for most builds of R; see \code{capabilities("iconv")} to verify.
+likely for most builds of R; see \code{capabilities("iconv")} to verify. Also note that
+'iconv', while portable, does not guarantee identical results across implementations and
+operating systems.
 }
 \examples{
 ## example file from package 'uchardet' encoding as windows-1252

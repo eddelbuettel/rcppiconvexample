@@ -4,7 +4,9 @@
 #' Read an Enconded File, Optionally Converting to Another Encoding
 #'
 #' This function relies on the 'iconv' facility available with R. Having 'iconv' is optional but
-#' likely for most builds of R; see \code{capabilities("iconv")} to verify.
+#' likely for most builds of R; see \code{capabilities("iconv")} to verify. Also note that
+#' 'iconv', while portable, does not guarantee identical results across implementations and
+#' operating systems.
 #'
 #' @param filename [string] A filename
 #' @param encoding [string, optional] An encoding. If present, file content is converted
